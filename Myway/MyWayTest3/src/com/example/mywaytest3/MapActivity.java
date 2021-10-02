@@ -51,9 +51,9 @@ public class MapActivity extends FragmentActivity implements GoogleMap.OnMarkerC
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_map);
 
-		mBtnFind = (Button) findViewById(R.id.buttonSearch);
-		mButtonAdd = (Button) findViewById(R.id.btn_add); // °Ë»ö¹öÆ°
-		etPlace = (EditText) findViewById(R.id.editTextQuery);
+		mBtnFind = findViewById(R.id.buttonSearch);
+		mButtonAdd =  findViewById(R.id.btn_add); // ê²€ìƒ‰ë²„íŠ¼
+		etPlace =  findViewById(R.id.editTextQuery);
 
 		SupportMapFragment mapFragment = (SupportMapFragment)getSupportFragmentManager().findFragmentById(R.id.map_view); 
 		mMap = mapFragment.getMap();
@@ -66,7 +66,7 @@ public class MapActivity extends FragmentActivity implements GoogleMap.OnMarkerC
 				String location = etPlace.getText().toString();
 
 				if(location==null || location.equals("")){
-					Toast.makeText(getBaseContext(), "Àå¼Ò¸¦ ÀÔ·ÂÇÏ¼¼¿ä", Toast.LENGTH_SHORT).show();
+					Toast.makeText(getBaseContext(), "ì¥ì†Œë¥¼ ì…ë ¥í•˜ì„¸ìš”", Toast.LENGTH_SHORT).show();
 					return;
 				}
 
@@ -93,8 +93,8 @@ public class MapActivity extends FragmentActivity implements GoogleMap.OnMarkerC
 			@Override
 			public void onClick(View v) {
 				if(etPlace.getText().toString()==null || etPlace.getText().toString().equals("")){
-					Toast.makeText(getBaseContext(), "Àå¼Ò¸¦ ÀÔ·ÂÇÏ¼¼¿ä", Toast.LENGTH_SHORT).show();
-					//////// Å×½ºÆ®!!!!
+					Toast.makeText(getBaseContext(), "ì¥ì†Œë¥¼ ì…ë ¥í•˜ì„¸ìš”", Toast.LENGTH_SHORT).show();
+					//////// í…ŒìŠ¤íŠ¸!!!!
 					Intent intent=new Intent(MapActivity.this, MapCurrentLocationActivity.class);
 					startActivity(intent);
 					///////
@@ -102,16 +102,16 @@ public class MapActivity extends FragmentActivity implements GoogleMap.OnMarkerC
 				}
 
 				if(lat == 0 && lng == 0 && newAddress == null){
-					Toast.makeText(getBaseContext(), "°Ë»ö ¹öÆ°À» ÅÍÄ¡ÇØ ÁÖ¼¼¿ä", Toast.LENGTH_SHORT).show();
+					Toast.makeText(getBaseContext(), "ê²€ìƒ‰ ë²„íŠ¼ì„ í„°ì¹˜í•´ ì£¼ì„¸ìš”", Toast.LENGTH_SHORT).show();
 					return;
 				}
 
 				if(markerLocation == null){
-					Toast.makeText(MapActivity.this, "ÁÂÇ¥ :" + lng + ", " + lat +"\nÁÖ¼Ò : " + newAddress, Toast.LENGTH_SHORT).show();
+					Toast.makeText(MapActivity.this, "ì¢Œí‘œ :" + lng + ", " + lat +"\nì£¼ì†Œ : " + newAddress, Toast.LENGTH_SHORT).show();
 					return;
 				}
-				//¸¶Ä¿°¡ ¿©·¯°³ ÀÏ¶§ ¸¶Ä¿¸¦ ¼±ÅÃÇÑ °æ¿ì
-				Toast.makeText(MapActivity.this, "ÁÂÇ¥ :" + markerLocation.longitude + ", " + markerLocation.latitude+"\nÁÖ¼Ò : " + newAddress, Toast.LENGTH_SHORT).show();
+				//ë§ˆì»¤ê°€ ì—¬ëŸ¬ê°œ ì¼ë•Œ ë§ˆì»¤ë¥¼ ì„ íƒí•œ ê²½ìš°
+				Toast.makeText(MapActivity.this, "ì¢Œí‘œ :" + markerLocation.longitude + ", " + markerLocation.latitude+"\nì£¼ì†Œ : " + newAddress, Toast.LENGTH_SHORT).show();
 			}
 		});
 	}
