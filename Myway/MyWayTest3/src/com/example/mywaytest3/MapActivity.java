@@ -177,16 +177,6 @@ public class MapActivity extends FragmentActivity implements GoogleMap.OnMarkerC
 
 			List<HashMap<String, String>> places = null;			
 			GeocodeJSONParser parser = new GeocodeJSONParser();
-
-			try{
-				jObject = new JSONObject(jsonData[0]);
-
-				/** Getting the parsed data as a an ArrayList */
-				places = parser.parse(jObject);
-
-			}catch(Exception e){
-				Log.d("Exception",e.toString());
-			}
 			return places;
 		}
 
